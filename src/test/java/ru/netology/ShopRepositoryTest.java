@@ -26,7 +26,6 @@ public class ShopRepositoryTest {
         Product[] actual = repository.findAll();
 
         Assertions.assertArrayEquals(expected, actual);
-
     }
 
     @Test
@@ -35,8 +34,9 @@ public class ShopRepositoryTest {
         repository.add(product1);
         repository.add(product2);
 
-        Assertions.assertThrows(NotFoundException.class, () -> {repository.removeById(2);});
-
+        Assertions.assertThrows(NotFoundException.class, () -> {
+            repository.removeById(2);
+        });
     }
 
     @Test
@@ -56,6 +56,8 @@ public class ShopRepositoryTest {
         ShopRepository repository = new ShopRepository();
         repository.add(product3);
 
-        Assertions.assertThrows(AlreadyExistsException.class, () -> {repository.add(product4);});
+        Assertions.assertThrows(AlreadyExistsException.class, () -> {
+            repository.add(product4);
+        });
     }
 }
